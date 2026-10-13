@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourierTrack - Отслеживание доставки</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">🚚 CourierTrack</div>
+            <nav class="nav">
+                <a href="#">Главная</a>
+                <a href="#">Для бизнеса</a>
+                <a href="#">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="container main-content">
+        
+        <!-- Секция поиска -->
+        <section class="hero">
+            <h1>Отслеживайте доставку в реальном времени</h1>
+            <p>Введите номер вашего заказа, чтобы узнать актуальный статус доставки.</p>
+            
+            <form id="tracking-form" class="tracking-form">
+                <input type="text" id="track-input" placeholder="Например: TRK-849201" required>
+                <button type="submit" class="btn-primary">Отследить</button>
+            </form>
+            <p id="loading-msg" class="loading-msg" style="display: none;">Поиск информации...</p>
+        </section>
+
+        <!-- Секция результата (скрыта по умолчанию) -->
+        <section id="result-section" class="result-section" style="display: none;">
+            <div class="status-card">
+                <div class="status-header">
+                    <h2>Заказ <span id="display-track-id">TRK-000000</span></h2>
+                    <span class="badge badge-in-transit">В пути</span>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item completed">
+                        <div class="dot"></div>
+                        <div class="content">
+                            <h3>Заказ оформлен</h3>
+                            <p>12 окт, 10:00</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item completed">
+                        <div class="dot"></div>
+                        <div class="content">
+                            <h3>Передан курьеру</h3>
+                            <p>13 окт, 09:30</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item active">
+                        <div class="dot"></div>
+                        <div class="content">
+                            <h3>Курьер в пути</h3>
+                            <p>Ожидаемое время: 14:00 - 16:00</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="dot"></div>
+                        <div class="content">
+                            <h3>Доставлен</h3>
+                            <p>Ожидается</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-secondary" onclick="resetSearch()">Отследить другой заказ</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 CourierTrack. Подсистема управления доставкой.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
